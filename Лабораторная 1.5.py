@@ -8,4 +8,11 @@ with open("books.csv") as csvfile:
         while "#" in row[12]:
             row[12] = row[12].split(sep="#")
             nums = nums + row[12]
-print(list(set(nums)))
+    for i in range(len(nums)):
+        if nums[i][0] == " ":
+            nums[i] = nums[i][1:]
+        if nums[i][-1] == " ":
+            nums[i] = nums[i][:-1]
+nums = list(set(nums))
+for i in range(len(nums)):
+    print(i+1, nums[i])
